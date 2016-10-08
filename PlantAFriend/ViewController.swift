@@ -8,18 +8,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var contactTable: UITableView!
+    var contactList: [Contact]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        contactTable.dataSource = self
+        contactTable.delegate = self
+        loadContacts()
+    }
+    
+    func loadContacts() {
+        
+    }
+    
+/* Tableview handler funcitons */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contactList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return ContactCell()
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func menuButton(_ sender: AnyObject) {
     }
-
 
 }
 

@@ -1,0 +1,6 @@
+framework module Pods_PlantAFriend {
+  umbrella header "Pods-PlantAFriend-umbrella.h"
+
+  export *
+  module * { export * }
+}
